@@ -1,3 +1,4 @@
+/* globals angular */
 'use strict'
 
 angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
@@ -9,7 +10,7 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
     })
   }])
   .config(function ($mdIconProvider) {
-    $mdIconProvider.iconSet('avatar', 'assets/svg/avatars.svg', 128)
+    $mdIconProvider.iconSet('avatar', 'assets/svg/avatars.svg', 64)
   })
 
   .controller('View1Ctrl', function ($scope, $http) {
@@ -17,7 +18,11 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
       icon: 'avatar:svg-',
       title: 'Svg-',
       background: '',
-      description: ['profile', 'skills', 'education', 'work', 'project-1', 'project-2', 'project-3', 'project-4', 'project-5', 'project-6', 'project-7']
+      description: ['profile', 'skills', 'education', 'work', 'project-1', 'project-2', 'project-3', 'project-4', 'project-5', 'project-6', 'project-7'],
+      profile: $scope.profile,
+      skillsArray: $scope.skillsArray,
+      educationArray: $scope.educationArray,
+      workArray: $scope.workArray
     })
 
     function buildGridModel (tileTmpl) {
@@ -76,10 +81,28 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
       return results
     }
 
-    $http.get('https://portfolio-12345.herokuapp.com').then(function successCallback(response) {
-      $scope.portfolioOverview = response.data
-      console.log($scope.portfolioOverview);
-    }, function errorCallback(response) {
-      console.log('get portfolio-12345.herokuapp.com/ error');
-      })
+    $http.get('https://portfolio-12345.herokuapp.com/profile').then(function successCallback (response) {
+      $scope.profile = response.data
+    })
+
+    $http.get('https://portfolio-12345.herokuapp.com/skills').then(function successCallback (response) {
+      $scope.skillsArray = response.data
+    })
+
+    $http.get('https://portfolio-12345.herokuapp.com/education').then(function successCallback (response) {
+      $scope.educationArray = response.data
+    })
+
+    $http.get('https://portfolio-12345.herokuapp.com/work').then(function successCallback (response) {
+      $scope.workArray = response.data
+    })
+
+    $scope.currentIndex = 100
+    this.setIndex = function (index) {
+      $scope.currentIndex = index
+    }
+
+    this.showDetails = function(index) {
+      return $scope.currentIndex
+    }
   })

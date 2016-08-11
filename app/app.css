@@ -1,39 +1,14 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+* {
+  font-family: 'Lato', sans-serif;
 }
 
 /* for angular grid */
 
 .gridListdemoDynamicTiles md-icon {
-  width: 50%;
-  height: 30%; }
+  width: 64;
+  height: 64; }
 
 .gridListdemoDynamicTiles md-icon svg {
   -webkit-border-radius: 50%;
@@ -111,5 +86,35 @@ md-grid-tile:hover {
   z-index: 500 !important;
   left: 0px !important;
   top: 0px !important;
+  transition: 1s;
+}
+
+md-grid-tile {
+  background: inherit;
+  width: inherit;
+  height: inherit;
   transition: 1s
 }
+
+md-grid-tile:hover {
+  visibility: visible !important;
+  transition: 1s !important;
+}
+
+/*figure {
+  background: inherit;
+  width: inherit;
+  height: inherit;
+  transition: 1s
+}
+
+figure:hover {
+  visibility: visible !important;
+  transition: 1s !important;
+  color: white;
+  background: black
+}*/
+
+/*h3 {
+  visibility: visible !important;
+}*/
