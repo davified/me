@@ -1,38 +1,82 @@
-<p>This is the partial for view 1.</p>
-
 <div ng-controller="View1Ctrl as vm" flex="" ng-cloak="" class="gridListdemoDynamicTiles">
-
-  <md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px">
-
-    <md-grid-tile ng-repeat="tile in vm.tiles" md-rowspan="{{tile.span.row}}" md-colspan="{{tile.span.col}}" md-colspan-sm="1" md-colspan-xs="1" ng-class="tile.background">
-        <div layout="column">
-          <md-icon md-svg-icon="{{tile.icon}}" ng-click="vm.setIndex($index)"></md-icon>
-          <h3 style="text-align: center">{{tile.description[$index]}}</h3>
-          <div ng-if="$index===0" ng-show="vm.showDetails() === 0">
-            <p>{{ profile.name }}</p>
+  <md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px" ng-show="vm.showDetails() < 106 ">
+    <md-grid-tile ng-repeat="tile in vm.tiles" md-rowspan="{{tile.span.row}}" md-colspan="{{tile.span.col}}" md-colspan-sm="1" md-colspan-xs="1" ng-class="tile.background" ng-click="vm.setIndex($index)">
+        <div layout="column" ng-class="{fullScreen: vm.showDetails() === $index}">
+          <md-icon md-svg-icon="{{tile.icon}}"></md-icon>
+          <h1 style="text-align: center">{{tile.description[$index]}}</h1>
+          <div ng-if="$index===0" ng-show="vm.showDetails() === 0" class="profile">
             <p> {{profile.about }}</p>
-            <!-- <img src="http://i.imgur.com/Ap113GJ.png"> -->
           </div>
 
-          <div ng-if="$index===1" ng-show="vm.showDetails() === 1">
-            <p>{{ skillsArray }}</p>
+          <div ng-if="$index===1" ng-show="vm.showDetails() === 1" class="fullPage">
+            <div ng-repeat="skill in skillsArray">
+              <p>{{ skill.skill }}</p>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: {{skill.proficiency*10}}%"></div>
+              </div>
+            </div>
           </div>
 
-          <div ng-if="$index===2" ng-show="vm.showDetails() === 2">
-            <p>{{ profile.name }}</p>
+          <div ng-if="$index===2" ng-show="vm.showDetails() === 2" class="fullPage">
+            <div ng-repeat="ed in educationArray">
+              <h2>{{ ed.school }}, {{ ed.yearCompleted }}</h2>
+              {{ ed.study }}, {{ ed.honors }}
+              <p>{{ ed.description }}</p>
+            </div>
           </div>
 
-          <div ng-if="$index===3" ng-show="vm.showDetails() === 3">
-            <p>{{ educationArray }}</p>
+          <div ng-if="$index===3" ng-show="vm.showDetails() === 3" class="fullPage">
+            <div ng-repeat="work in workArray" >
+              <h3>{{ work.employer }}, {{ work.country }}</h3>
+              <h4>{{ work.startDate }} - {{ work.endDate }}</h4>
+              <p>{{ work.jobDescription }}</p>
+            </div>
           </div>
 
-          <div ng-if="$index===4" ng-show="vm.showDetails() === 4">
-            <p>{{ workArray }}</p>
+          <div ng-if="$index===4" ng-show="vm.showDetails() === 4" class="fullPage">
+            <h3 class='text-center'>Recreating the classic 3310 game with Javascript and a twist</h3><br>
+            <div><img src="../assets/img/snake-demo.gif"></div>
+          </div>
+
+          <div ng-if="$index===5" ng-show="vm.showDetails() === 5" class="fullPage">
+            <h3 class='text-center'>Reducing the barriers to volunteering</h3><br>
+            <div><img src="../assets/img/volunteer.png"></div>
+          </div>
+
+          <div ng-if="$index===6" ng-show="vm.showDetails() === 6" class="fullPage">
+            <h3 class='text-center'>Real-time data on carpark availability using Node, Express and Leaflet.js</h3><br>
+            <div><img src="../assets/img/carpark.png"></div>
+          </div>
+
+          <div ng-if="$index===7" ng-show="vm.showDetails() === 7" class="fullPage">
+            <h3 class='text-center'>Say goodbye to internet junk</h3><br>
+            <div><img src="../assets/img/readr.gif"></div>
+          </div>
+
+          <div ng-if="$index===8" ng-show="vm.showDetails() === 8" class="fullPage">
+            8 learning-ninja
+          </div>
+
+          <div ng-if="$index===9" ng-show="vm.showDetails() === 9" class="fullPage">
+            <h3 class='text-center'>1. How to build an simple web application on Node, Express & Leaflet (<a href="http://slides.com/davidtan-5/consuming-api/fullscreen#/">slides</a>)</h3>
+            <br>
+            <div class='text-center'><iframe width="560" height="315" src="https://www.youtube.com/embed/n4zbOpSe8EA" frameborder="0" allowfullscreen></iframe></div>
+          </div>
+
+          <div ng-if="$index===10" ng-show="vm.showDetails() === 10" class="fullPage">
+            <ul class="list-inline intro-social-buttons btn-center">
+              <li>
+                  <a href="https://www.twitter.com/davified" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+              </li>
+              <li>
+                  <a href="https://www.github.com/davified" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+              </li>
+              <li>
+                  <a href="https://www.linkedin.com/in/davified" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+              </li>
+            </ul>
           </div>
         </div>
     </md-grid-tile>
-
-
   </md-grid-list>
-
 </div>

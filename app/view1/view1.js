@@ -14,11 +14,13 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
   })
 
   .controller('View1Ctrl', function ($scope, $http) {
+    $scope.pageClass = 'page-home';
+
     this.tiles = buildGridModel({
       icon: 'avatar:svg-',
       title: 'Svg-',
       background: '',
-      description: ['profile', 'skills', 'education', 'work', 'project-1', 'project-2', 'project-3', 'project-4', 'project-5', 'project-6', 'project-7'],
+      description: ['david tan', 'skills', 'education', 'work', 'snake', 'volunteer-now', 'carparks-sg', 'readr', 'learning-ninja', 'talks', 'contact me'],
       profile: $scope.profile,
       skillsArray: $scope.skillsArray,
       educationArray: $scope.educationArray,
@@ -99,10 +101,21 @@ angular.module('myApp.view1', ['ngRoute', 'ngMaterial'])
 
     $scope.currentIndex = 100
     this.setIndex = function (index) {
-      $scope.currentIndex = index
+      if ($scope.currentIndex === 100) {
+        $scope.currentIndex = index
+      } else {
+        $scope.currentIndex = 100
+      }
     }
 
     this.showDetails = function(index) {
       return $scope.currentIndex
     }
+
+    // this.toggleIndex = function(index) {
+    //   if ($scope.currentIndex === index) {
+    //     $scope.currentIndex
+    //   }
+    // }
+
   })
