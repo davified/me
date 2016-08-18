@@ -10,7 +10,7 @@
 
           <div ng-if="$index===1" ng-show="vm.showDetails() === 1" class="fullPage">
             <div ng-repeat="skill in skillsArray">
-              <p>{{ skill.skill }}</p>
+              <p class="progress-bar-text">{{ skill.skill }}</p>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: {{skill.proficiency*10}}%"></div>
               </div>
@@ -30,26 +30,27 @@
               <h3>{{ work.employer }}, {{ work.country }}</h3>
               <h4>{{ work.startDate }} - {{ work.endDate }}</h4>
               <p>{{ work.jobDescription }}</p>
+              <hr>
             </div>
           </div>
 
           <div ng-if="$index===4" ng-show="vm.showDetails() === 4" class="fullPage">
-            <h3 class='text-center'>Recreating the classic 3310 game with Javascript and a twist</h3><br>
+            <h3 class='text-center'>Recreating the classic 3310 game with Javascript and a twist (<a href="https://davified.github.io/snake-game">link</a>)</h3><br>
             <div><img src="../assets/img/snake-demo.gif"></div>
           </div>
 
           <div ng-if="$index===5" ng-show="vm.showDetails() === 5" class="fullPage">
-            <h3 class='text-center'>Reducing the barriers to volunteering</h3><br>
+            <h3 class='text-center'>Reducing the barriers to volunteering (<a href="https://volunteer-now.herokuapp.com">link</a>)</h3><br>
             <div><img src="../assets/img/volunteer.png"></div>
           </div>
 
           <div ng-if="$index===6" ng-show="vm.showDetails() === 6" class="fullPage">
-            <h3 class='text-center'>Real-time data on carpark availability using Node, Express and Leaflet.js</h3><br>
+            <h3 class='text-center'>Real-time data on carpark availability using Node, Express and Leaflet.js (<a href="https://carparks-sg.herokuapp.com">link</a>)</h3><br>
             <div><img src="../assets/img/carpark.png"></div>
           </div>
 
           <div ng-if="$index===7" ng-show="vm.showDetails() === 7" class="fullPage">
-            <h3 class='text-center'>Say goodbye to internet junk</h3><br>
+            <h3 class='text-center'>Say goodbye to internet junk (<a href="https://flight846.github.io/readr-client">link</a>)</h3><br>
             <div><img src="../assets/img/readr.gif"></div>
           </div>
 
