@@ -19,9 +19,10 @@
 
           <div ng-if="$index===2" ng-show="vm.showDetails() === 2" class="fullPage">
             <div ng-repeat="ed in educationArray">
-              <h2>{{ ed.school }}, {{ ed.yearCompleted }}</h2>
+              <h3>{{ ed.school }}, {{ ed.yearCompleted }}</h3>
               {{ ed.study }}, {{ ed.honors }}
               <p>{{ ed.description }}</p>
+              <hr>
             </div>
           </div>
 

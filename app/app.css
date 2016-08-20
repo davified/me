@@ -64,7 +64,7 @@
   background: #ff8a80; }
 
 .gridListdemoDynamicTiles .pink {
-  background: #ff80ab; }
+  background: gold; }
 
 .gridListdemoDynamicTiles md-grid-tile {
   transition: all 300ms ease-out 50ms; }
@@ -101,16 +101,15 @@ md-grid-tile {
   background: inherit;
   position: fixed;
   right: 0px;
-  /*left:0px;*/
   bottom: 0px;
-  /*transition: all 1s ease-in-out;*/
+  transition: all 0.1s ease-in-out;
 }
 
 /* when hiding the picture */
-.ng-hide-add         { animation:0.01s lightSpeedOut ease; }
+/*.ng-hide-add         { animation:0.01s lightSpeedOut ease; }*/
 
 /* when showing the picture */
-.ng-hide-remove      { animation:0.5s flipInX ease; }
+.ng-hide-remove      { animation:0.6s flipInX ease; }
 
 /* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
 /* flip in */
@@ -187,7 +186,7 @@ figure {
 }*/
 
 /* page transition animations the angular way*/
-.page        {
+/*.page        {
     bottom:0;
     padding-top:200px;
     position:absolute;
@@ -197,13 +196,13 @@ figure {
 }
 
 .page h1    { font-size:60px; }
-.page a     { margin-top:50px; }
+.page a     { margin-top:50px; }*/
 
 /* PAGES (specific colors for each page)
 ============================================================================= */
-.page-home      { background:#00D0BC; color:#00907c; }
+/*.page-home      { background:#00D0BC; color:#00907c; }
 .page-about     { background:#E59400; color:#a55400; }
-.page-contact   { background:#ffa6bb; color:#9e0000; }
+.page-contact   { background:#ffa6bb; color:#9e0000; }*/
 
 div.profile > * {
   font-size: 2em;
@@ -310,5 +309,71 @@ a {
 
   iframe {
     width: 250px
+  }
+}
+
+
+@media (max-width: 800px) {
+  .fullScreen {
+    background: black;
+    min-width: 10vmax;
+    min-height: 10vmin;
+    z-index: 10000;
+    background: inherit;
+    position: fixed;
+    right: 0px;
+    left:0px;
+    top: 0px;
+    /*transition: all 1s ease-in-out;*/
+  }
+
+  div.profile > * {
+    font-size: 2em;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  div.fullPage > * {
+    font-size: 1.5em;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  div.work > * {
+    font-size: 1em;
+    max-width: 250px;
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  h2 {
+    font-size: 1.3em
+  }
+
+  h3, h4 {
+    font-size: 1em
+  }
+
+  .progress-bar-text {
+    margin-bottom: 0px;
+    margin-top: -5px
+  }
+
+  img {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 1%;
+  }
+
+  .btn-center {
+    width: 250px
+    margin: 0 auto;
+    padding-left: 50px;
+  }
+
+  iframe {
+    width: 600px
   }
 }
